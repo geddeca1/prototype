@@ -1,0 +1,367 @@
+/* Form layout */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; 
+}
+
+h1 {
+  font-size: 3.125em; 
+}
+
+h2 {
+  font-size: 2.5em; 
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.875em; 
+  font-weight: 500;
+}
+
+p {
+  font-size: 1em; 
+}
+
+body {
+  color: rgb(51,51,51);
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+header, 
+#attHeader{
+  margin: 1rem 0 2rem 2rem;
+}
+
+header {
+ width: fit-content;
+ line-height: 3.125em;
+}
+
+#attHeader{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-left:2rem;
+}
+
+
+
+#details1, 
+#details2, 
+#details3, 
+#inputContainer, 
+#hcDetails{
+  font-size: 1.5em;
+  line-height: 1.5em;
+  margin-right:3em;
+  margin-bottom:.4em;
+  text-transform:capitalize;
+  width:16ch;
+}
+main{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  /* -webkit-flex-wrap: wrap;
+  flex-wrap: wrap; */
+  padding-bottom: 2rem;
+  align-items: stretch;
+}
+
+button, 
+#autofill{
+  background: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #4D4D4D;
+  font-size: 1.2rem;
+  padding: .4rem .8rem;
+  color:#E6E6E6;
+  text-transform: capitalize;
+  cursor: pointer;
+  text-align: center;
+}
+
+#commit{
+  margin-left:1em;
+}
+
+
+#leftPanel{
+  min-width:28ch;
+  display:grid;
+  grid-gap:1rem;
+  max-height: 100vh;
+}
+
+
+#instructions, 
+#lessonDetails{
+  background-color:#E6e6e6 ;
+  border-radius: 8px;
+  height: 100%;
+  padding: 1em;
+  line-height: 2rem;
+  margin-left: 2rem;
+}
+
+#lessonDetails label{
+  display: block;
+}
+
+#lessonDetails label span{
+  display: inline-block;
+  width: 6ch;
+}
+
+#lessonDetails select{
+  border: none;
+  background-color: inherit;
+}
+
+#fetchDetails{
+  margin-top:.8rem;
+}
+
+#rightPanel{
+  height: auto;
+  width: auto;
+  overflow-y: scroll;
+  display:none;
+  height: 70vh;
+  min-width: 20%;
+  grid-template-columns: 1fr 1fr;
+
+}
+#studentsAttendance {
+  /* grid column template set in javascript */
+  align-items:center;
+  line-height: 2.5rem;
+  display:grid;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+
+ }
+
+#studentsDetails{
+ display:grid;
+ grid-template-columns: auto;
+ align-items:center;
+ line-height: 2.5rem;
+}
+
+#studentsDetails .percent:nth-of-type(odd), 
+#studentsDetails .fullName:nth-of-type(odd), 
+#studentsDetails .st:nth-of-type(even),
+#studentsDetails .setMarks:nth-of-type(odd)
+{
+  background-color: #E6e6e6;
+}
+
+#studentsAttendance label{
+  text-align: center;
+}
+#studentsAttendance .marks{
+  width: 20px;
+  text-transform: uppercase;
+}
+
+.percent{
+  grid-column:1/1;
+  margin-left:2rem;
+  padding-left: .5rem;
+}
+.st{
+  grid-column:2/2;
+  padding-left: 1rem;
+  width: max-content;
+  width: 100%;
+} 
+.fullName {
+  grid-column:3/3;
+  padding-left: 1rem;
+  width: 100%;
+  min-width: max-content;
+
+}
+.percent:nth-child(2n){
+  background-color: pink;
+}
+
+.setMarks{
+ grid-column:4/4 ;
+ width: fit-content; 
+ border:none;
+ color:#2680EB;
+ font-size: inherit;
+ line-height: inherit;
+ /* font-size: 1.2rem; */
+ font-weight: bold;
+ appearance: none;
+ padding-left:.5rem;
+ padding-right:2rem;
+}
+
+/*On smallish screens, don't show attendance data*/
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 640px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    #studentsAttendance{
+      display:none;
+    }
+
+    .rightPanel{
+      display:block;
+      /* grid-template-columns: 1fr; */
+    }
+}
+
+/* .marks{
+} */
+
+/* main {
+  padding-left: 3rem;
+  width: 100%;
+}
+
+.attendanceHeader{
+  margin: 3rem;
+  width:fit-content;
+}
+
+.attendanceHeader h1{
+  font-size: 4rem;
+  padding-bottom: .2rem;
+}
+
+h2 {
+  margin-top: 6rem;
+  margin-bottom: 1rem;
+  font-weight: normal;
+}
+
+p, h2{
+  font-size: 2rem;
+}
+
+.attendanceHeader p{
+  padding-bottom: .5rem;
+}
+
+.details,
+.details label,
+.details select{
+  padding: 2rem ;
+  font: inherit;
+  font-size: 2.5rem;
+}
+
+.details { 
+  display:grid;
+  grid-template-columns:auto auto; 
+  width:fit-content;
+  background-color: rgb(230,230,230);
+  padding-right: 3.8rem;
+}
+
+.details select, 
+.details label{
+ background-color: rgb(230,230,230);
+ border:none;
+ font-size: inherit;
+ color: inherit;
+}
+
+.details option{
+  background-color: rgb(230,230,230);
+  margin-left:1.8rem; 
+  font-size:1rem;
+}
+
+/* Select drop down arrows are too small to see, so need to be replaced */
+/*select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+  background-image: url("/assets/images/arrow.svg");
+  background-repeat: no-repeat;
+  background-size: 1.8rem;
+  background-position: right;
+  width: 110%;
+}
+
+.details select, 
+.details label{
+  border-bottom: rgb(179,179,179) 3px solid ;
+}
+
+.details select:last-child,
+.details label:nth-last-child(2) {
+  border-bottom: none;
+} */
+
+/*modal css*/
+/* The Modal (background) */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%; 
+  height: 20%;
+  background-color: rgba(0,0,0,0.8); 
+}
+
+/* Modal Content */
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+

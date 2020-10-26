@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>Attendance</title>
+  </head>
+  <body onload="popPage()">
+    <header class="attendanceHeader">
+      <h1>Attendance</h1>
+      <h3>Logged in as BIT department</h3>
+      <hr>
+    </header>
+
+    <div id="attHeader">
+      <p id="details1"></p>
+      <p id="details2"></p>
+      <p id="details3"></p>
+      <div id="inputContainer">
+        <select id="autofill"></select>
+        <button id="commitData">Commit</button>
+      </div>
+      <label id = "hcDetails"><label>
+    </div>
+
+    <main>
+      <section id="leftPanel">
+        <aside id="lessonDetails">
+
+          <label for="paperid">
+            <span>Paper</span>
+            <select name="papers" id="paperid"></select>
+          </label>
+
+          <label for="weekid">
+          <span>Week</span>
+            <select id="weekid" name="week"></select>
+          </label>
+
+          <label for="streamid" id="streamLabel">
+            <span>Stream</span>
+            <select name="stream" id="streamid"></select>
+          </label>
+
+          <label for="labid" id="labLabel">
+          <span>lab</span>
+            <select name="lab" id="labid"></select>
+          </label>
+
+     
+          <label for="fetchDetails">
+            <button type="button" id="fetchDetails">Fetch</button>
+          </label>
+ 
+
+        </aside>
+        <aside id="instructions">
+          <p>
+            P present, in class<br>
+            A absent<br>
+            E explained<br>
+            S sick<br>
+            L late<br>
+            <br>
+            - yet to be filled in<br>
+            * student attended another stream
+          </p>
+        </aside>
+
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span id="close">&times;</span>
+            <p id=.modal-content>A role can not be entered for a future date - try changing the lab time.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="rightPanel">
+        <section id="studentsDetails"></section>
+        <section id="studentsAttendance"></section>
+      </section>
+
+      
+      
+
+      
+      
+
+      
+      
+
+      
+
+      
+
+      
+
+      
+    </main>
+    <footer></footer>
+  </body>
+</html>
+
+<script src="/assets/js/getData.js" defer="defer"></script>
+<script src="/assets/js/populatePage.js" defer="defer"></script>
+<script src="/assets/js/saveData.js" defer="defer"></script>
